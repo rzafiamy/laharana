@@ -158,3 +158,46 @@ footer {
 .form-inline .btn-primary:hover {
     background: #d43f3f;
 }
+
+
+/* Phone list */
+.phone-list {
+    list-style: none;
+    padding: 0;
+}
+.phone-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.phone-flag {
+    width: 40px;
+    height: 40px;
+    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.phone-number {
+    flex-grow: 1;
+    font-size: 18px;
+}
+.phone-votes {
+    display: flex;
+    align-items: center;
+}
+.vote-bar {
+    height: 10px;
+    background: #ff4d4d;
+    margin-right: 10px;
+}
+
+/* List */
+#searchResult{
+    max-height: 90%;
+    overflow: scroll;
+    margin-bottom: 200px;
+}

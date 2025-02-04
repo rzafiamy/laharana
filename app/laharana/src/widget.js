@@ -3,8 +3,20 @@ class ListView {
     constructor(items) {
         this.items = items;
     }
+
     render() {
-        return `<ul class="list-group">${this.items.map(item => `<li class="list-group-item">${item}</li>`).join('')}</ul>`;
+        return `
+        <ul class="phone-list">
+            ${this.items.map(item => `
+                <li class="phone-item">
+                    <div class="phone-flag">${item.location}</div>
+                    <div class="phone-number">${item.prefix} ${item.number}</div>
+                    <div class="phone-votes">
+                        <div class="vote-bar" style="width: ${item.votes * 10}px;"></div>
+                        <span>${item.votes} votes</span>
+                    </div>
+                </li>`).join('')}
+        </ul>`;
     }
 }
 

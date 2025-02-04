@@ -1,23 +1,33 @@
-// model.js
 class PhoneNumberModel {
     constructor() {
-        this.phoneNumbers = {};
+        this.phoneNumbers = new Map();
     }
 
-    addPhoneNumber(number) {
-        if (!this.phoneNumbers[number]) {
-            this.phoneNumbers[number] = { votes: 0 };
+    addPhoneNumber({ number, prefix, location }) {
+        if (!this.phoneNumbers.has(number)) {
+            this.phoneNumbers.set(number, { 
+                prefix, 
+                location, 
+                number, 
+                votes: 0 
+            });
         }
     }
 
     getPhoneNumber(number) {
-        return this.phoneNumbers[number];
+        return this.phoneNumbers.get(number) || null;
     }
 
     vote(number, value) {
-        if (this.phoneNumbers[number]) {
-            this.phoneNumbers[number].votes += value;
+        if (this.phoneNumbers.has(number)) {
+            let phoneData = this.phoneNumbers.get(number);
+            phoneData.votes += value;
+            this.phoneNumbers.set(number, phoneData);
         }
+    }
+
+    getAllPhoneNumbers() {
+        return Array.from(this.phoneNumbers.values());
     }
 }
 
