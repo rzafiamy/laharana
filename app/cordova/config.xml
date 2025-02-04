@@ -1,11 +1,85 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
-    <description>Sample Apache Cordova App</description>
-    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
-        Apache Cordova Team
+<widget id="ovh.infodev.laharana" version="1.0.0" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>Laharana</name>
+    <description>Laharana is your go-to malicious phone number checker app.</description>
+    <author email="plola@infodev.ovh" href="https://infodev.ovh">
+        Infodev Mobile Dev Team
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+        
+        
+        <access origin="*" />
+        <allow-navigation href="*" />
+
+        <preference name="AllowFileAccessFromFileURLs" value="true" />
+        <preference name="AllowUniversalAccessFromFileURLs" value="true" />
+
+
+        <preference name="android-targetSdkVersion" value="34" />
+        <preference name="android-minSdkVersion" value="21" />
+
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/splash.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
+
+        <!-- Set android permissions -->
+        <config-file mode="merge" parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+            <!-- Devices running Android 12L (API level 32) or lower  -->
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+
+            <!-- Devices running Android 13 (API level 33) or higher -->
+            <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+            <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+            <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+            <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
+
+            <!-- To handle the reselection within the app on devices running Android 14
+                or higher if your app targets Android 14 (API level 34) or higher.  -->
+            <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+        </config-file>
+
+        <!-- Set intent -->
+        <config-file parent="/manifest/application/activity" target="AndroidManifest.xml">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </config-file>
+    </platform>
+
+    <plugin name="cordova-plugin-android-permissions" spec="1.1.5" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="6.0.4" />
+    <plugin name="cordova-plugin-file" spec="8.1.0" />
+    <plugin name="cordova-plugin-openwith" spec="github:rzafiamy/cordova-plugin-openwith" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^6.0.0" />
+
+
+    <preference name="webviewbounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="iosPersistentFileLocation" value="Library" />
+    <preference name="BackupWebStorage" value="local" />    
+    <preference name="AndroidScopedStorage" value="true" />
+    <preference name="EnableViewportScale" value="false" />
+
+
 </widget>

@@ -13,11 +13,24 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^13.0.0"
+    "cordova-android": "^13.0.0",
+    "cordova-plugin-android-permissions": "1.1.5",
+    "cordova-plugin-x-socialsharing": "6.0.4",
+    "cordova-plugin-file": "8.1.0",
+    "cordova-plugin-openwith": "github:rzafiamy/cordova-plugin-openwith",
+    "cordova-plugin-inappbrowser": "^6.0.0"
   },
   "cordova": {
     "platforms": [
       "android"
-    ]
-  }
+    ],
+    "plugins": {
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-openwith": {},
+      "cordova-plugin-inappbrowser": {}
+    }
+  },
+  "dependencies": {}
 }

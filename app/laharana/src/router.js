@@ -11,3 +11,5 @@ class Router {
         route();
     }
 }
+
+export { Router };
