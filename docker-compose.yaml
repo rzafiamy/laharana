@@ -1,0 +1,15 @@
+version: '3'
+services:
+    laharana:
+      container_name: laharana
+      build:
+        context: .
+        dockerfile: Dockerfile
+      user: "1000"
+      ports:
+        - 6000:5173
+      volumes:
+        - ./app:/app
+      # run command in /app/mobchat
+      #command: npm run dev --prefix /app/mobchat
+      command: tail -f /dev/null
