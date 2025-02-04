@@ -30,6 +30,22 @@ class Controller {
         const listView = new ListView(phones).render();
 
         app.innerHTML = `${searchForm}<div id="searchResult">${listView}</div>`;
+
+         // Add input event listener for real-time filtering
+         const inputField = document.querySelector("input");
+         inputField.addEventListener("input", () => Controller.filterList(phones));
+    }
+
+
+    static filterList(phones) {
+        const inputValue = document.querySelector("input").value.trim().toLowerCase();
+        const filteredPhones = phones.filter(phone => {
+            const fullNumber = `${phone.prefix} ${phone.number}`.toLowerCase();
+            return fullNumber.includes(inputValue);
+        });
+
+        const display = document.getElementById("searchResult");
+        display.innerHTML = new ListView(filteredPhones).render();
     }
 
     static report() {

@@ -30,7 +30,7 @@ class FormView {
     }
     render() {
         return `<form onsubmit="event.preventDefault(); this.onSubmit()" class="form-inline">
-            ${this.fields.map(field => `<input type="text" placeholder="${field}" required class="form-control">`).join('')}
+            ${this.fields.map(field => `<input id="searchInput" type="text" placeholder="${field}" required class="form-control">`).join('')}
             <button type="submit" class="btn btn-primary">Add</button>
         </form>`;
     }

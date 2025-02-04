@@ -192,7 +192,7 @@ footer {
 
 .phone-number {
     flex-grow: 1;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .phone-votes {
@@ -212,7 +212,7 @@ footer {
     cursor: pointer;
     border: none;
     background: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Mobile device styles */
@@ -221,6 +221,13 @@ footer {
         display: none; /* Hide the vote bar on mobile */
     }
 }
+
+@media (max-width: 425px) {
+    .phone-number, .phone-votes {
+        font-size: 13px; /* Reduce font size on smaller screens */
+    }
+}
+
 /* List */
 #searchResult {
     max-height: 90%;
