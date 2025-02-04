@@ -165,12 +165,20 @@ footer {
     list-style: none;
     padding: 0;
 }
+
 .phone-item {
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Stack items vertically on mobile */
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+.phone-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add space between info and votes on mobile */
+}
+
 .phone-flag {
     width: 40px;
     height: 40px;
@@ -181,22 +189,40 @@ footer {
     border-radius: 5px;
     margin-right: 10px;
 }
+
 .phone-number {
     flex-grow: 1;
     font-size: 18px;
 }
+
 .phone-votes {
     display: flex;
     align-items: center;
 }
+
 .vote-bar {
     height: 10px;
     background: #ff4d4d;
     margin-right: 10px;
 }
 
+.vote-up, .vote-down {
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 18px;
+}
+
+/* Mobile device styles */
+@media (max-width: 670px) {
+    .vote-bar{
+        display: none; /* Hide the vote bar on mobile */
+    }
+}
 /* List */
-#searchResult{
+#searchResult {
     max-height: 90%;
     overflow: scroll;
     margin-bottom: 200px;

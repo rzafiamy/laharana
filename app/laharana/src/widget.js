@@ -13,7 +13,10 @@ class ListView {
                     <div class="phone-number">${item.prefix} ${item.number}</div>
                     <div class="phone-votes">
                         <div class="vote-bar" style="width: ${item.votes * 10}px;"></div>
+
+                        <button class="vote-down" onclick="Controller.vote('${item.number}', -1)">👎</button>
                         <span>${item.votes} votes</span>
+                        <button class="vote-up" onclick="Controller.vote('${item.number}', 1)">👍</button>
                     </div>
                 </li>`).join('')}
         </ul>`;
